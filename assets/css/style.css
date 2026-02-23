@@ -1,0 +1,137 @@
+/*
+	Custom styles for the birthday single-page site
+	- Elegant, masculine palette: navy, charcoal, beige, gold accents
+	- Includes landing styles, hero decorations, floating animations,
+		paparazzi flashes, confetti canvas, card hover effects, and footer.
+*/
+
+:root{
+	--navy: #0f1724;
+	--charcoal: #1f2933;
+	--beige: #e6dcc9;
+	--gold: #c59a3b;
+	--muted: #a7b0b6;
+}
+
+/* Page reset */
+body{
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background: linear-gradient(180deg, var(--navy) 0%, #0b1220 100%);
+	color: #e8edf2;
+	line-height:1.5;
+}
+
+/* Landing / entry screen */
+.landing{
+	position:fixed;
+	inset:0;
+	background: radial-gradient(ellipse at center, rgba(8,10,18,0.9), rgba(5,7,11,1));
+	z-index:1000;
+	transition: opacity .8s ease, transform .8s ease;
+}
+.landing.hidden{ opacity:0; transform:translateY(-10px); pointer-events:none; }
+.landing-inner h1{ font-weight:600; letter-spacing:.6px; color:var(--beige); }
+.landing-inner p{ color:var(--muted); }
+
+/* Confetti canvas */
+.confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:900; }
+
+/* Paparazzi flashes */
+.flashes{ position:fixed; inset:0; pointer-events:none; z-index:950; }
+.flash{ position:absolute; width:140px; height:140px; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 40%, transparent 70%); opacity:0; transform:scale(.6); animation: flashPulse .9s ease-out forwards; }
+@keyframes flashPulse{ 0%{ opacity:0; transform:scale(.6); } 30%{ opacity:1; transform:scale(1.05);} 100%{ opacity:0; transform:scale(1.2);} }
+
+/* Hero */
+.hero-section{ background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); }
+.hero-heading{ font-family: Georgia, 'Times New Roman', serif; font-weight:700; color:var(--beige); font-size:2rem; display:inline-flex; align-items:center; justify-content:center; }
+.decorative-icon{ color:var(--gold); transform-origin:center; animation: iconPulse 3s infinite ease-in-out; }
+@keyframes iconPulse{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-6px) rotate(-8deg); } }
+
+/* Floating decorative balloons (multiple, colorful) */
+.floating-decor{ position:absolute; inset:0; pointer-events:none; overflow:visible; }
+.floating-decor .balloon{ position:absolute; border-radius:52% 52% 46% 46%; box-shadow: 0 8px 20px rgba(2,6,10,0.45); transform-origin:center; will-change:transform; }
+.floating-decor .balloon::after{ /* string */
+	content:''; position:absolute; left:50%; top:100%; width:2px; height:56px; background:rgba(230,220,201,0.18); transform:translateX(-50%); border-radius:2px;
+}
+
+/* individual balloons - positions, sizes, colors, durations */
+.floating-decor .b1{ width:84px; height:110px; left:8%; top:18%; background:linear-gradient(180deg,#c59a3b,#e6dcc9); animation: balloonFloat 6.4s ease-in-out infinite; }
+.floating-decor .b2{ width:68px; height:92px; left:22%; top:28%; background:linear-gradient(180deg,#2b6b9f,#82a9c0); animation: balloonFloat 7.2s ease-in-out infinite; animation-delay:0.4s; }
+.floating-decor .b3{ width:96px; height:126px; left:46%; top:14%; background:linear-gradient(180deg,#1f2933,#3b5064); animation: balloonFloat 5.8s ease-in-out infinite; animation-delay:0.2s; }
+.floating-decor .b4{ width:72px; height:98px; left:68%; top:26%; background:linear-gradient(180deg,#d4b483,#e8d9c0); animation: balloonFloat 6.8s ease-in-out infinite; animation-delay:0.6s; }
+.floating-decor .b5{ width:56px; height:78px; left:82%; top:18%; background:linear-gradient(180deg,#7a9aa6,#cfe0ea); animation: balloonFloat 8s ease-in-out infinite; animation-delay:1s; }
+.floating-decor .b6{ width:74px; height:100px; left:34%; top:34%; background:linear-gradient(180deg,#6b4a2e,#b68c63); animation: balloonFloat 7.6s ease-in-out infinite; animation-delay:0.9s; }
+
+@keyframes balloonFloat{ 0%{ transform:translateY(0) rotate(-4deg);} 50%{ transform:translateY(-20px) rotate(6deg);} 100%{ transform:translateY(0) rotate(-4deg);} }
+
+/* Responsive: reduce size / hide some balloons on small screens */
+@media (max-width:767px){
+	.hero-heading{ font-size:1.4rem; }
+	.floating-decor .b1, .floating-decor .b3, .floating-decor .b4{ display:none; }
+	.floating-decor .b2, .floating-decor .b5, .floating-decor .b6{ left:auto; right:12px; top:6%; transform:translateX(0); }
+}
+
+/* Messages cards */
+.message-card{ border:none; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); box-shadow: 0 6px 18px rgba(2,6,10,0.6); transition: transform .28s ease, box-shadow .28s ease, filter .28s ease; }
+.message-card:hover{ transform:translateY(-8px) scale(1.01); box-shadow: 0 12px 30px rgba(3,8,15,0.75); filter:brightness(1.03); }
+.message-card .icon{ color:var(--gold); }
+
+/* Meaning box */
+.meaning-box{ background: rgba(15,18,36,0.6); border-radius:10px; color:var(--beige); box-shadow: 0 6px 18px rgba(10,14,20,0.6); }
+.underline{ width:80px; height:3px; background:linear-gradient(90deg,var(--gold),rgba(197,154,59,0.6)); position:relative; animation: underlineGrow 1.6s ease forwards; opacity:.95 }
+@keyframes underlineGrow{ 0%{ transform:scaleX(0);} 100%{ transform:scaleX(1);} }
+
+/* Kay nickname tooltip */
+.nickname {
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 1.05rem;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.tooltipballoon {
+  visibility: hidden;
+  width: 220px;
+  background-color: rgba(255,248,220,0.95);
+  color: #333;
+  text-align: center;
+  border-radius: 14px;
+  padding: 12px;
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.nickname:hover .tooltipballoon {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipballoon canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Footer */
+footer{ background:linear-gradient(180deg, rgba(7,10,16,0.9), rgba(5,7,11,0.95)); }
+
+/* Small utilities */
+.text-gold{ color:var(--gold) !important; }
+
+/* Responsive tweaks */
+@media (max-width:767px){
+	.hero-heading{ font-size:1.4rem; }
+	.floating-decor::before{ display:none; }
+}
+
