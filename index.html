@@ -45,6 +45,12 @@
 				<div class="balloon b5" aria-hidden="true"></div>
 				 
 			</div>
+<!-- floating shapes -->
+			<div class="floating-shapes" aria-hidden="true">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
+</div>
 			<h2 class="hero-heading mb-2">
 				<i class="bi bi-star-fill text-gold me-2 decorative-icon"></i>
 				<span class="balloon-text">Happy Birthday, <span id="recipient-name">My Odogwu</span></span>
@@ -54,6 +60,14 @@
 		</div>
 	</section>
 
+<section class="py-5">
+  <div class="container text-center">
+    <div class="portrait-wrapper mx-auto">
+      <img src="assets/images/kay.jpeg" alt="Kingsley" class="portrait-img">
+    </div>
+    <p class="small text-secondary mt-3">A moment worth celebrating.</p>
+  </div>
+</section>
 	<!-- Appreciation Messages Grid -->
 	<section id="messages" class="py-5 bg-light">
 		<div class="container">
@@ -62,38 +76,38 @@
 				<!-- Row 1: 3 columns -->
 				<div class="col-md-4 mb-4">
 					<div class="card message-card h-100 text-center p-3">
-						<div class="icon mb-3 text-primary"><i class="bi bi-hand-thumbs-up-fill fs-2"></i></div>
+						<div class="icon mb-3 text-primary" data-tooltip="You rock!"><i class="bi bi-hand-thumbs-up-fill fs-2"></i></div>
 						<p class="mb-0">You inspire everyone around you. Thank you for being you. I appreciate the role you've played and the lessons i've learned from our conversations.</p>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="card message-card h-100 text-center p-3">
-						<div class="icon mb-3 text-primary"><i class="bi bi-people-fill fs-2"></i></div>
+						<div class="icon mb-3 text-primary" data-tooltip="Sending you loads of hugs & Loves!"><i class="bi bi-people-fill fs-2"></i></div>
 						<p class="mb-0">Thank you for your kindness and for the support you've shown me over time. I've learned a lot and gained valuable perspective, even as i continue figuring things out. . Your kindness leaves a mark — grateful to know you.</p>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="card message-card h-100 text-center p-3">
-						<div class="icon mb-3 text-primary"><i class="bi bi-award-fill fs-2"></i></div>
+						<div class="icon mb-3 text-primary" data-tooltip="You're a special person!"><i class="bi bi-award-fill fs-2"></i></div>
 						<p class="mb-0">Here's to your wisdom, wit and steady presence. Your generosity goes beyond help. It shows in thoughtfulness, patience, and genuine care.</p>
 					</div>
 				</div>
 				<!-- Row 2: 3 columns -->
 				<div class="col-md-4 mb-4">
 					<div class="card message-card h-100 text-center p-3">
-						<div class="icon mb-3 text-primary"><i class="bi bi-globe2 fs-2"></i></div>
+						<div class="icon mb-3 text-primary" data-tooltip="You're a global friend!"><i class="bi bi-globe2 fs-2"></i></div>
 						<p class="mb-0">Distance doesn't change how much I appreciate you. I pray this new age/year brings you clarity, strength, and continued success. May this year be filled with good health, wisdom, and open doors for you.</p>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="card message-card h-100 text-center p-3">
-						<div class="icon mb-3 text-primary"><i class="bi bi-lightning-fill fs-2"></i></div>
+						<div class="icon mb-3 text-primary" data-tooltip="You're full of energy!"><i class="bi bi-lightning-fill fs-2"></i></div>
 						<p class="mb-0">You bring energy and clarity — thank you. I hope you enjoy this small gift. It's a simple token of appreciation for your kindness and support</p>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="card message-card h-100 text-center p-3">
-						<div class="icon mb-3 text-primary"><i class="bi bi-heart-fill fs-2"></i></div>
+						<div class="icon mb-3 text-primary" data-tooltip="You're full of love!"><i class="bi bi-heart-fill fs-2"></i></div>
 						<p class="mb-0">Made with love, respect, gratitude, and good energy.</p>
 					</div>
 				</div>
@@ -111,6 +125,7 @@
 						<p class="mb-0">Kingsley: "King's field," a place of strength, purpose, and leadership. It truly reflects the positive impact you bring to those around you. A name that carries strength, vision, and purpose. It reminds me of the wisdom, guidance, and kindness you've shared over time with me.</p>
                         <p class="small text-light mt-3 mb-1">A name people know you by.</p>
 
+						<!-- kay -->
 <span class="nickname" id="kay">
   Kay
   <span class="tooltipballoon">
@@ -124,15 +139,30 @@
 			</div>
 		</div>
 	</section>
- 
+	<!-- one last thing -->
+ <section class="py-5 text-center">
+  <button class="btn btn-outline-light" id="revealBtn">
+    One last thing
+  </button>
+
+  <div id="hiddenMessage" class="mt-4 d-none">
+    <p class="lead">
+      Thank you for being part of my journey.  
+      I hope this year brings you clarity, peace, and more reasons to smile.
+    </p>
+  </div>
+</section>
+
 	<!-- Footer -->
 	<footer class="py-4 bg-dark text-light">
 		<div class="container text-center small">
 			<div>Made with respect, gratitude, and good energy. From afar, but sincerely.</div>
-			<div class="mt-2">&copy; <span id="year"></span> <i class="bi bi-heart-fill text-danger"></i></div>
+			<div class="mt-2">&copy; <p>dami ann</p><span id="year"></span> <i class="bi bi-heart-fill text-danger"></i></div>
 		</div>
 	</footer>
 </main>
+<!-- audio -->
+<audio id="ambientSound" src="assets/sound/kayonly.mp3" autoplay loop></audio>
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

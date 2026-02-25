@@ -71,10 +71,85 @@ body{
 	.floating-decor .b2, .floating-decor .b5, .floating-decor .b6{ left:auto; right:12px; top:6%; transform:translateX(0); }
 }
 
+/* Floating shapes in hero */
+.floating-shapes .shape {
+  position: absolute;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: floatShapes 6s ease-in-out infinite;
+}
+
+.floating-shapes .s1 { top:20%; left:15%; animation-delay: 0s; }
+.floating-shapes .s2 { top:35%; left:60%; animation-delay: 1.5s; }
+.floating-shapes .s3 { top:50%; left:40%; animation-delay: 3s; }
+
+@keyframes floatShapes {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+/* Portrait styling */
+.portrait-wrapper {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--gold), var(--beige));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(10%);
+}
+
+/* Portrait hover effect */
+.portrait-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.portrait-wrapper {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
 /* Messages cards */
 .message-card{ border:none; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); box-shadow: 0 6px 18px rgba(2,6,10,0.6); transition: transform .28s ease, box-shadow .28s ease, filter .28s ease; }
 .message-card:hover{ transform:translateY(-8px) scale(1.01); box-shadow: 0 12px 30px rgba(3,8,15,0.75); filter:brightness(1.03); }
 .message-card .icon{ color:var(--gold); }
+
+/* Tooltip on icon hover */
+.message-card .icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.message-card .icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--beige);
+  color: var(--navy);
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  z-index: 50;
+}
+
+.message-card .icon:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
 
 /* Meaning box */
 .meaning-box{ background: rgba(15,18,36,0.6); border-radius:10px; color:var(--beige); box-shadow: 0 6px 18px rgba(10,14,20,0.6); }

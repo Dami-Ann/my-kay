@@ -150,3 +150,20 @@ if (nickname) {
     });
   });
 }
+
+const revealBtn = document.getElementById('revealBtn');
+const hiddenMessage = document.getElementById('hiddenMessage');
+
+
+
+if (revealBtn && hiddenMessage) {
+  revealBtn.addEventListener('click', () => {
+    hiddenMessage.classList.toggle('d-none');
+    revealBtn.textContent = '🙂';
+  });
+  const sound = document.getElementById('ambientSound');
+if (sound) {
+  sound.volume = 0.3; // soft, classy
+  sound.play().catch(() => {});
+}
+}
